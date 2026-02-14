@@ -7,6 +7,11 @@
 	fsmonitor = true
 	untrackedcache = true
 [alias]
+    sm = stash -m
+    sl = stash list
+    sa = stash apply
+    sd = stash drop
+    st = status
 	logs = log --oneline --decorate
 	logss = log --pretty=format:'%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s'
 	graph = log --oneline --graph --decorate 

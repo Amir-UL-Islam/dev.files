@@ -1,5 +1,5 @@
 " Options
-let mapleader = ";"
+let mapleader = ","
 syntax on
 "set hidden
 set relativenumber
@@ -155,11 +155,10 @@ autocmd filetype python map ,r :w <CR> :!clear<CR><CR> :term python3 % <CR>
 autocmd BufRead, *.rb nmap ,r :silent !{ruby %}<cr>
 
 
-"For java 11
-"autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term java % <CR>
-
-" For java 8
-autocmd filetype java map ,r :w <CR> :!clear<CR><CR> :term javac % && java %:r <CR>
+" For java 
+autocmd filetype java map <buffer> ,bc :w<CR>:split<CR>:wincmd h<CR>:wincmd l<CR>:setlocal nowrap<CR>:term javac % && javap -c -p %:r<CR>
+autocmd filetype java map <buffer> ,r :w<CR>:split<CR>:wincmd h<CR>:wincmd l<CR>:setlocal nowrap<CR>:term javac % && java %:r<CR>
+autocmd filetype java map ,bcv :w <CR> :!clear<CR><CR> :term javac % && javap -v %:r <CR>
 autocmd filetype go map ,r :w <CR> :!clear<CR><CR> :term go run % <CR>
 
 autocmd filetype markdown map ,r :w <CR> :!clear<CR><CR> :term pandoc -t plain `find . -maxdepth 1 -iname "${1:-readme.md}"` % <CR>
@@ -197,8 +196,6 @@ map ,w <C-w><C-w>
 map gn :bnext<cr>
 map gp :bprevious<cr>
 map ggd :bdelete<cr>  
-
-" I personally use <leader> 
 map <leader>n :bnext<cr>
 map <leader>p :bprevious<cr>
 " map <leader>d :bdelete<cr>
