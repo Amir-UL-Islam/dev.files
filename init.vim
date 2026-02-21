@@ -82,6 +82,18 @@ call plug#end()
 "coc setups
 source ~/vim.kitty.tmux/coc.vim
 
+" CoC extensions to install automatically
+let g:coc_global_extensions = [
+    \ 'coc-clangd',
+    \ 'coc-go',
+    \ 'coc-java',
+    \ 'coc-json',
+    \ 'coc-pyright',
+    \ 'coc-sh',
+    \ 'coc-tsserver',
+    \ 'coc-yaml',
+    \ ]
+
 
 
 
