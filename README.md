@@ -18,3 +18,14 @@ What this does:
 - Symlinks configs for `tmux`, `nvim`, `zsh`, and `kitty`
 - Installs vim-plug and Neovim plugins
 - Installs CoC extensions listed in `init.vim`
+
+## Fedora Install
+1. Ensure `dnf` and `sudo` are available
+2. Run:
+
+```bash
+./install.sh
+```
+
+Notes:
+- Fedora installs are best-effort. If a package isn't available, the installer prints a warning and continues.
