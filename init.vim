@@ -76,8 +76,30 @@ Plug 'yggdroot/indentline'
 " For AutoComplete with COC
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'npm ci' }
 
-Plug 'doums/darcula'
+" Markdown rendering plugin
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'Amir-UL-Islam/darcula-vim-jetbrain'
 call plug#end()
+
+lua << EOF
+-- Check if treesitter is installed before configuring
+local ts_status, ts = pcall(require, "nvim-treesitter.configs")
+if ts_status then
+    ts.setup({
+        ensure_installed = { "markdown", "markdown_inline" },
+        highlight = { enable = true },
+    })
+end
+
+-- Check if render-markdown is installed before configuring
+local rm_status, rm = pcall(require, "render-markdown")
+if rm_status then
+    rm.setup({})
+end
+EOF
+
 
 "coc setups
 source ~/vim.kitty.tmux/coc.vim
@@ -92,6 +114,10 @@ let g:coc_global_extensions = [
     \ 'coc-sh',
     \ 'coc-tsserver',
     \ 'coc-yaml',
+    \ 'coc-python',
+    \ 'coc-highlight',
+    \ 'coc-sql',
+    \ 'coc-metals',
     \ ]
 
 

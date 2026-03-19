@@ -17,8 +17,11 @@ alias ls="lsd"
 alias vi="nvim"
 alias dhc="cd /Users/amir/IdeaProjects/dhc"
 alias idea="cd /Users/amir/IdeaProjects"
+alias base="cd /Users/amir/IdeaProjects/base"
 alias disk="dysk"
 alias gsc="gitleaks protect --staged"
+alias ddss="find . -name '.DS_Store' -delete"
+alias fdss="find . -name '.DS_Store'"
 
 
 alias fzf="fzf -m --preview=\"bat --color=always {}\""
